@@ -35,6 +35,7 @@ jobs:
           NODE_ENV: production
           ROOT: /
           ROUTING_STYLE: wildcard
+          GA_ID: ${{ vars.GA_ID }}
 
       - name: Deploy to Cloudflare Pages
         uses: cloudflare/pages-action@v1
