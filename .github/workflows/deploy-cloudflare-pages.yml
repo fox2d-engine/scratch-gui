@@ -36,17 +36,6 @@ jobs:
           ROOT: /
           ROUTING_STYLE: wildcard
 
-      - name: Verify build output
-        run: |
-          echo "Build directory contents:"
-          ls -lh build/
-          echo ""
-          echo "Checking _redirects file:"
-          cat build/_redirects
-          echo ""
-          echo "Checking _headers file:"
-          cat build/_headers
-
       - name: Deploy to Cloudflare Pages
         uses: cloudflare/pages-action@v1
         with:
