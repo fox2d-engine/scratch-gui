@@ -1,4 +1,19 @@
-scratch-gui modified for use in [TurboWarp](https://turbowarp.org/)
+# Fox2D Editor (TurboWarp Mod)
+
+Fox2D Editor is a modified version of [TurboWarp](https://turbowarp.org/), which is itself a modification of [Scratch](https://scratch.mit.edu/).
+
+**Website:** https://fox2d.com
+
+## About This Project
+
+This project is based on TurboWarp's scratch-gui, which compiles Scratch projects to JavaScript for significantly faster execution. Fox2D maintains compatibility with Scratch projects while providing custom features and branding.
+
+**Project Lineage:**
+- Original: [Scratch](https://github.com/LLK/scratch-gui) (MIT/BSD-3-Clause)
+- Fork: [TurboWarp](https://github.com/TurboWarp/scratch-gui) (GPL-3.0)
+- This Project: Fox2D Editor (GPL-3.0)
+
+---
 
 ## Setup
 

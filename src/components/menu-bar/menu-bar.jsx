@@ -1025,14 +1025,7 @@ class MenuBar extends React.Component {
                                 iconClassName={styles.feedbackButtonIcon}
                                 iconSrc={discordIcon}
                             >
-                                <FormattedMessage
-                                    defaultMessage="Feedback"
-                                    description="Button to give feedback in the menu bar"
-                                    id="tw.feedbackButton"
-                                    values={{
-                                        APP_NAME
-                                    }}
-                                />
+                                Feedback
                             </Button>
                         </a>
                     </div>
