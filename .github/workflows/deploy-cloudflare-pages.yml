@@ -52,7 +52,7 @@ jobs:
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          projectName: turbowarp-gui
+          projectName: fox2d-editor
           directory: build
           # Optional: Git commit info for deployment
           gitHubToken: ${{ secrets.GITHUB_TOKEN }}
