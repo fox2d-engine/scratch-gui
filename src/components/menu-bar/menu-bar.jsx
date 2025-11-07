@@ -1021,7 +1021,7 @@ class MenuBar extends React.Component {
                             target="_blank"
                         >
                             <Button
-                                className={styles.feedbackButton}
+                                className={classNames(styles.menuBarButton, styles.feedbackButton)}
                                 iconClassName={styles.feedbackButtonIcon}
                                 iconSrc={discordIcon}
                             >

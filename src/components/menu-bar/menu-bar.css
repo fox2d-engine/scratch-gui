@@ -102,17 +102,16 @@
 
 .feedback-link {
     text-decoration: none;
+    color: inherit;
 }
 
 .feedback-button {
-    background-color: $motion-primary;
-    color: $ui-white;
-    height: 34px;
+    box-shadow: 0 0 0 1px $ui-black-transparent;
+    color: $menu-bar-foreground;
 }
 
 .feedback-button-icon {
-    height: 1rem;
-    width: 1rem;
+    height: 1.25rem;
 }
 
 .divider {
