@@ -106,7 +106,6 @@
 }
 
 .feedback-button {
-    box-shadow: 0 0 0 1px $ui-black-transparent;
     color: $menu-bar-foreground;
 }
 
