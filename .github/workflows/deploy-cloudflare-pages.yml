@@ -1,0 +1,60 @@
+name: Deploy to Cloudflare Pages
+
+on:
+  push:
+    branches:
+      - develop
+  workflow_dispatch:
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: read
+      deployments: write
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          submodules: recursive
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build project
+        run: npm run build
+        env:
+          NODE_ENV: production
+          ROOT: /
+          ROUTING_STYLE: wildcard
+
+      - name: Verify build output
+        run: |
+          echo "Build directory contents:"
+          ls -lh build/
+          echo ""
+          echo "Checking _redirects file:"
+          cat build/_redirects
+          echo ""
+          echo "Checking _headers file:"
+          cat build/_headers
+
+      - name: Deploy to Cloudflare Pages
+        uses: cloudflare/pages-action@v1
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          projectName: turbowarp-gui
+          directory: build
+          # Optional: Git commit info for deployment
+          gitHubToken: ${{ secrets.GITHUB_TOKEN }}
+          # Optional: Branch name (defaults to current branch)
+          branch: ${{ github.ref_name }}

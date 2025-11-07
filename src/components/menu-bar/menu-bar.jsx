@@ -96,6 +96,7 @@ import editIcon from './icon--edit.svg';
 import addonsIcon from './addons.svg';
 import errorIcon from './tw-error.svg';
 import advancedIcon from './tw-advanced.svg';
+import discordIcon from './discord-icon.svg';
 
 import ninetiesLogo from './nineties_logo.svg';
 import catLogo from './cat_logo.svg';
@@ -341,9 +342,9 @@ class MenuBar extends React.Component {
         if (modifier) {
             if (event.key.toLowerCase() === 's') {
                 this.props.handleSaveProject();
-                event.preventDefault();    
+                event.preventDefault();
             } else if (event.key.toLowerCase() === 'o') {
-                event.preventDefault();    
+                event.preventDefault();
                 this.props.onStartSelectingFileUpload();
             }
         }
@@ -1015,14 +1016,17 @@ class MenuBar extends React.Component {
                     <div className={styles.menuBarItem}>
                         <a
                             className={styles.feedbackLink}
-                            href="https://scratch.mit.edu/users/GarboMuffin/#comments"
+                            href="https://discord.com/invite/d2zbWQkHnG"
                             rel="noopener noreferrer"
                             target="_blank"
                         >
-                            {/* todo: icon */}
-                            <Button className={styles.feedbackButton}>
+                            <Button
+                                className={styles.feedbackButton}
+                                iconClassName={styles.feedbackButtonIcon}
+                                iconSrc={discordIcon}
+                            >
                                 <FormattedMessage
-                                    defaultMessage="{APP_NAME} Feedback"
+                                    defaultMessage="Feedback"
                                     description="Button to give feedback in the menu bar"
                                     id="tw.feedbackButton"
                                     values={{

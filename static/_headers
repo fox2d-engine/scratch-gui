@@ -1,0 +1,42 @@
+# Cloudflare Pages custom HTTP headers
+# Documentation: https://developers.cloudflare.com/pages/platform/headers
+
+# JavaScript and CSS files - long-term cache (with contenthash)
+# Note: Files are in js/pentapod/ subdirectory with contenthash
+/js/:version/:file
+  Cache-Control: public, max-age=31536000, immutable
+  X-Content-Type-Options: nosniff
+
+# Static assets with hash (images, sounds, etc)
+/static/assets/:file
+  Cache-Control: public, max-age=31536000, immutable
+
+# HTML files - short-term cache
+/*.html
+  Cache-Control: public, max-age=3600, must-revalidate
+  X-Frame-Options: SAMEORIGIN
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
+
+# Homepage - even shorter cache
+/
+  Cache-Control: public, max-age=1800, must-revalidate
+
+# Scratch blocks media (static content, can be cached for a week)
+/static/blocks-media/:theme/:file
+  Cache-Control: public, max-age=604800
+
+# Extensions (custom extensions)
+/static/extensions/:file
+  Cache-Control: public, max-age=86400
+
+# Service Worker (must not be cached for updates to work)
+/sw.js
+  Cache-Control: public, max-age=0, must-revalidate
+  Service-Worker-Allowed: /
+
+# Security headers - apply to all pages
+/*
+  X-Content-Type-Options: nosniff
+  X-XSS-Protection: 1; mode=block
+  Referrer-Policy: strict-origin-when-cross-origin
